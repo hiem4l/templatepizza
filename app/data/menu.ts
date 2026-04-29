@@ -256,7 +256,7 @@ export const boissons: Boisson[] = [
   { id: 3, name: 'Orangina', description: '33cl', price: 3.00, category: 'SODAS' },
   { id: 4, name: 'Ice Tea Pêche', description: '33cl', price: 3.00, category: 'SODAS' },
   // Bières
-  { id: 5, name: 'Heineken', description: '33cl — Bière blonde hollandaise', price: 3.00, category: 'BIERES' },
+  { id: 5, name: 'Heineken', description: '33cl — Bière blonde hollandaise', price: 4.00, category: 'BIERES' },
   // Vins
   { id: 6, name: 'Marrenon, Les Grains, Pinot noir', description: 'IGP Méditerranée — Rouge', price: 17.00, category: 'VINS' },
   { id: 7, name: 'Sun Up, Les Grains, Pinot noir', description: 'IGP Méditerranée — Rosé', price: 17.00, category: 'VINS' },

@@ -120,10 +120,9 @@
         <div v-if="activeCategory === 'desserts'">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
-              v-for="(d, i) in desserts"
+              v-for="d in desserts"
               :key="d.id"
-              class="reveal bg-white shadow-sm border-t-2 border-pizza overflow-hidden"
-              :data-delay="i * 80"
+              class="bg-white shadow-sm border-t-2 border-pizza overflow-hidden"
             >
               <div class="aspect-[4/3] bg-cover bg-center"
                 style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80')" />
@@ -144,10 +143,9 @@
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div
-                v-for="(b, i) in boissonsByCategory[cat.key]"
+                v-for="b in boissonsByCategory[cat.key]"
                 :key="b.id"
-                class="reveal flex items-center justify-between p-4 bg-white border border-dark/10 hover:border-pizza/40 transition-colors duration-300"
-                :data-delay="i * 50"
+                class="flex items-center justify-between p-4 bg-white border border-dark/10 hover:border-pizza/40 transition-colors duration-300"
               >
                 <div>
                   <p class="font-body text-sm text-dark font-bold">{{ b.name }}</p>
