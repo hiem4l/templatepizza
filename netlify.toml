@@ -4,9 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  NUXT_PUBLIC_API_URL = "https://sian-d-acqui.onrender.com/api"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/200.html"
   status = 200
