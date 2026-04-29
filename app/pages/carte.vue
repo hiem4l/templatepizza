@@ -68,15 +68,14 @@
 
           <!-- Category label: Traditionnelles -->
           <template v-if="activeFilter === 'all' || hasTraditionnelles">
-            <div v-if="activeFilter === 'all'" class="mb-6 pb-3 border-b border-pizza/20 reveal">
+            <div v-if="activeFilter === 'all'" class="mb-6 pb-3 border-b border-pizza/20">
               <h2 class="font-body text-xs tracking-[0.3em] uppercase text-pizza font-light">Traditionnelles</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               <div
-                v-for="(pizza, i) in traditionnellesPizzas"
+                v-for="pizza in traditionnellesPizzas"
                 :key="pizza.id"
-                class="reveal group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
-                :data-delay="i * 60"
+                class="group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <PizzaCard :pizza="pizza" />
               </div>
@@ -85,15 +84,14 @@
 
           <!-- Category label: Signatures -->
           <template v-if="activeFilter === 'all' || hasSignatures">
-            <div v-if="activeFilter === 'all'" class="mb-6 pb-3 border-b border-pizza/20 reveal">
+            <div v-if="activeFilter === 'all'" class="mb-6 pb-3 border-b border-pizza/20">
               <h2 class="font-body text-xs tracking-[0.3em] uppercase text-pizza font-light">Signatures</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div
-                v-for="(pizza, i) in signaturesPizzas"
+                v-for="pizza in signaturesPizzas"
                 :key="pizza.id"
-                class="reveal group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
-                :data-delay="i * 60"
+                class="group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <PizzaCard :pizza="pizza" />
               </div>
@@ -108,10 +106,9 @@
             </div>
             <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div
-                v-for="(pizza, i) in filteredPizzas"
+                v-for="pizza in filteredPizzas"
                 :key="pizza.id"
-                class="reveal group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
-                :data-delay="i * 60"
+                class="group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <PizzaCard :pizza="pizza" />
               </div>
