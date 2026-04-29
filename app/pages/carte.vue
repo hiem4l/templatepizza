@@ -12,39 +12,35 @@
       </div>
     </section>
 
-    <!-- Sub-header catégories -->
-    <div class="fixed top-[64px] left-0 right-0 z-40 bg-cream border-b border-dark/8">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-6">
-        <!-- Onglets -->
-        <div class="flex overflow-x-auto scrollbar-none">
-          <button
-            v-for="cat in categories"
-            :key="cat.id"
-            @click="activeCategory = cat.id"
-            :class="[
-              'flex-shrink-0 px-5 py-4 text-[11px] tracking-[0.2em] uppercase font-body font-light transition-all duration-300 border-b-2 -mb-px',
-              activeCategory === cat.id
-                ? 'border-pizza text-pizza'
-                : 'border-transparent text-dark/50 hover:text-dark hover:border-dark/20'
-            ]"
-          >
-            {{ cat.label }}
-          </button>
-        </div>
-        <!-- Lien retour accueil -->
-        <NuxtLink
-          to="/"
-          class="hidden sm:flex items-center gap-1.5 font-body text-[10px] tracking-[0.2em] uppercase text-dark/40 hover:text-pizza transition-colors duration-300 flex-shrink-0"
-        >
-          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-          Accueil
-        </NuxtLink>
-      </div>
-    </div>
-
     <!-- Main content -->
-    <section class="py-20 pt-[116px]">
+    <section class="py-20">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+        <!-- Onglets catégories -->
+        <div class="flex items-center justify-between gap-6 mb-8 pb-4 border-b border-dark/10">
+          <div class="flex gap-2 flex-wrap">
+            <button
+              v-for="cat in categories"
+              :key="cat.id"
+              @click="activeCategory = cat.id"
+              :class="[
+                'px-5 py-2 text-[11px] tracking-[0.2em] uppercase font-body font-light transition-all duration-300 border',
+                activeCategory === cat.id
+                  ? 'bg-pizza text-cream border-pizza'
+                  : 'border-dark/20 text-dark/50 hover:text-dark hover:border-dark/40'
+              ]"
+            >
+              {{ cat.label }}
+            </button>
+          </div>
+          <NuxtLink
+            to="/"
+            class="hidden sm:flex items-center gap-1.5 font-body text-[10px] tracking-[0.2em] uppercase text-dark/40 hover:text-pizza transition-colors duration-300 flex-shrink-0"
+          >
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Accueil
+          </NuxtLink>
+        </div>
 
         <!-- PIZZAS -->
         <div v-if="activeCategory === 'pizzas'">
