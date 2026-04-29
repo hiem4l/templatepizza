@@ -1,0 +1,12 @@
+[build]
+  command = "npm run generate"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NUXT_PUBLIC_API_URL = "https://sian-d-acqui.onrender.com/api"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

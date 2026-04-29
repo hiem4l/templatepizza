@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-pizza: #c0392b;
+    --color-pizza-light: #e74c3c;
+    --color-cream: #fdf6f0;
+    --color-dark: #1e0f07;
+    --color-amber: #e8a835;
+    --color-warm: #8b5e3c;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-dark font-body antialiased;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(192, 57, 43, 0.25);
+    color: #1e0f07;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fdf6f0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c0392b;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-3 border border-pizza text-pizza px-8 py-4 text-sm tracking-[0.2em] uppercase font-body font-light transition-all duration-500 hover:bg-pizza hover:text-cream relative overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-pizza scale-x-0 origin-left transition-transform duration-500;
+    z-index: -1;
+  }
+
+  .btn-primary:hover::before {
+    @apply scale-x-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-3 bg-pizza text-cream px-8 py-4 text-sm tracking-[0.2em] uppercase font-body font-light transition-all duration-500 hover:bg-pizza-dark;
+  }
+
+  .section-title {
+    @apply font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-wide text-dark;
+  }
+
+  .section-subtitle {
+    @apply font-body text-sm tracking-[0.3em] uppercase text-pizza font-light;
+  }
+
+  .red-line {
+    @apply w-12 h-px bg-pizza;
+  }
+
+  .form-label {
+    @apply font-body text-xs tracking-[0.25em] uppercase text-dark/60 font-light mb-2 block;
+  }
+
+  .form-input {
+    @apply w-full border border-dark/20 bg-transparent px-5 py-4 font-body text-sm text-dark placeholder-dark/40 focus:outline-none focus:border-pizza transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-body {
+    font-family: 'Lato', system-ui, sans-serif;
+  }
+
+  .text-pizza {
+    color: var(--color-pizza);
+  }
+
+  .text-dark {
+    color: var(--color-dark);
+  }
+
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+
+  .bg-pizza {
+    background-color: var(--color-pizza);
+  }
+
+  .border-pizza {
+    border-color: var(--color-pizza);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Mobile menu transition */
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Animate fade in up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
