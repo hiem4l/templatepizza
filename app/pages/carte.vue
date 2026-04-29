@@ -49,7 +49,7 @@
         <!-- PIZZAS -->
         <div v-if="activeCategory === 'pizzas'">
           <!-- Filters -->
-          <div class="flex flex-wrap gap-3 mb-10 reveal">
+          <div class="flex flex-wrap gap-3 mb-10">
             <button
               v-for="f in filters"
               :key="f.id"
