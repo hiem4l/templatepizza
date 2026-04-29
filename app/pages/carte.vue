@@ -121,7 +121,7 @@
               class="bg-white shadow-sm border-t-2 border-pizza overflow-hidden"
             >
               <div class="aspect-[4/3] bg-cover bg-center"
-                style="background-image: url('https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=600&q=80')" />
+                style="background-image: url('https://assets.afcdn.com/recipe/20160928/46742_w1024h576c1cx2736cy1824.webp')" />
               <div class="p-6">
                 <h3 class="font-display text-xl text-dark font-bold mb-2">{{ d.name }}</h3>
                 <p class="font-body text-sm text-dark/60 font-light mb-4 leading-relaxed">{{ d.description }}</p>
