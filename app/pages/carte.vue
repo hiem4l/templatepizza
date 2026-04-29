@@ -13,7 +13,7 @@
     </section>
 
     <!-- Sub-header catégories -->
-    <div class="sticky top-[64px] z-40 bg-cream border-b border-dark/8">
+    <div class="fixed top-[64px] left-0 right-0 z-40 bg-cream border-b border-dark/8">
       <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-6">
         <!-- Onglets -->
         <div class="flex overflow-x-auto scrollbar-none">
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Main content -->
-    <section class="py-20">
+    <section class="py-20 pt-[116px]">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
         <!-- PIZZAS -->
