@@ -109,7 +109,7 @@
                 </div>
                 <button type="submit" :disabled="submitting" class="btn-primary w-full justify-center">
                   <span v-if="submitting">Envoi en cours...</span>
-                  <span v-else">Envoyer le message</span>
+                  <span v-else>Envoyer le message</span>
                 </button>
               </form>
             </div>
