@@ -107,6 +107,14 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 useSeoMeta({
   title: 'À propos — Pizzeria Sian D\'Acqui',
   description: 'Découvrez l\'histoire de la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Four à bois, pâte artisanale et ingrédients frais.',
+  ogTitle: 'À propos — Pizzeria Sian D\'Acqui',
+  ogDescription: 'Découvrez l\'histoire de la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Four à bois, pâte artisanale et ingrédients frais.',
+  ogUrl: 'https://siandacqui.fr/a-propos',
+  ogType: 'website',
+  ogImage: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1200&q=80',
+  twitterTitle: 'À propos — Pizzeria Sian D\'Acqui',
+  twitterDescription: 'L\'histoire de la Pizzeria Sian D\'Acqui — four à bois, pâte artisanale.',
+  twitterImage: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1200&q=80',
 })
 
 const { initReveal } = useScrollReveal()

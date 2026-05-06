@@ -148,6 +148,14 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 useSeoMeta({
   title: 'Contact — Pizzeria Sian D\'Acqui',
   description: 'Contactez la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Appelez le 06 66 86 83 70 pour commander.',
+  ogTitle: 'Contact — Pizzeria Sian D\'Acqui',
+  ogDescription: 'Pizzeria artisanale à Saint-Roman-de-Bellet, Nice. Appelez le 06 66 86 83 70 — ouvert du mardi au dimanche.',
+  ogUrl: 'https://siandacqui.fr/contact',
+  ogType: 'website',
+  ogImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
+  twitterTitle: 'Contact — Pizzeria Sian D\'Acqui',
+  twitterDescription: 'Pizzeria artisanale à Saint-Roman-de-Bellet. 06 66 86 83 70.',
+  twitterImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
 })
 
 const { initReveal } = useScrollReveal()

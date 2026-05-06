@@ -113,6 +113,14 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 useSeoMeta({
   title: 'Galerie — Pizzeria Sian D\'Acqui',
   description: 'Découvrez en images nos pizzas artisanales, notre four à bois et l\'atmosphère unique de la Pizzeria Sian D\'Acqui.',
+  ogTitle: 'Galerie — Pizzeria Sian D\'Acqui',
+  ogDescription: 'Découvrez en images nos pizzas artisanales, notre four à bois et l\'atmosphère unique de la Pizzeria Sian D\'Acqui.',
+  ogUrl: 'https://siandacqui.fr/galerie',
+  ogType: 'website',
+  ogImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80',
+  twitterTitle: 'Galerie — Pizzeria Sian D\'Acqui',
+  twitterDescription: 'Nos pizzas artisanales et notre four à bois en images.',
+  twitterImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80',
 })
 
 const { initReveal } = useScrollReveal()

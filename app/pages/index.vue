@@ -267,6 +267,55 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 useSeoMeta({
   title: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
   description: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux, commande au 06 66 86 83 70.',
+  ogTitle: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
+  ogDescription: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux, commande au 06 66 86 83 70.',
+  ogUrl: 'https://siandacqui.fr/',
+  ogType: 'website',
+  ogImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
+  twitterTitle: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
+  twitterDescription: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice.',
+  twitterImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Restaurant',
+        name: 'Pizzeria Sian D\'Acqui',
+        url: 'https://siandacqui.fr',
+        telephone: '+33666868370',
+        image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
+        description: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux.',
+        servesCuisine: 'Pizza',
+        priceRange: '€€',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Saint-Roman-de-Bellet',
+          addressLocality: 'Nice',
+          postalCode: '06200',
+          addressCountry: 'FR',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 43.7535,
+          longitude: 7.2029,
+        },
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'], opens: '11:30', closes: '14:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'], opens: '18:00', closes: '22:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday'], opens: '11:30', closes: '14:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday'], opens: '18:00', closes: '22:30' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '12:00', closes: '14:30' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '18:00', closes: '22:30' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday'], opens: '12:00', closes: '14:30' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday'], opens: '18:00', closes: '22:00' },
+        ],
+      }),
+    },
+  ],
 })
 
 const { initReveal } = useScrollReveal()

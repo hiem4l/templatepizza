@@ -186,6 +186,14 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 useSeoMeta({
   title: 'La Carte — Pizzeria Sian D\'Acqui',
   description: 'Découvrez notre carte de 16 pizzas artisanales au feu de bois, desserts et boissons. Végétariennes, viande, poisson.',
+  ogTitle: 'La Carte — Pizzeria Sian D\'Acqui',
+  ogDescription: 'Découvrez notre carte de 16 pizzas artisanales au feu de bois, desserts et boissons. Végétariennes, viande, poisson.',
+  ogUrl: 'https://siandacqui.fr/carte',
+  ogType: 'website',
+  ogImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
+  twitterTitle: 'La Carte — Pizzeria Sian D\'Acqui',
+  twitterDescription: '16 pizzas artisanales au feu de bois à Saint-Roman-de-Bellet.',
+  twitterImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
 })
 
 const { initReveal } = useScrollReveal()
