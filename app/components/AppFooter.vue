@@ -43,7 +43,7 @@
           <ul class="space-y-4 text-sm font-light font-body">
             <li class="flex items-start gap-3 text-cream/60">
               <span class="text-pizza mt-0.5">✦</span>
-              <span>Saint-Roman-de-Bellet<br/>06200 Nice, France</span>
+              <span>708 Rte de Bellet<br/>06200 Nice, France</span>
             </li>
             <li class="flex items-center gap-3 text-cream/60">
               <span class="text-pizza">✦</span>
@@ -53,8 +53,8 @@
 
           <div class="mt-8 border border-pizza/30 p-4">
             <p class="font-body text-xs tracking-[0.2em] uppercase text-pizza font-light mb-2">Horaires</p>
-            <p class="font-body text-xs text-cream/60 font-light">Mar – Dim : 11h30 – 14h &amp; 18h – 22h</p>
-            <p class="font-body text-xs text-cream/60 font-light">Lundi : Fermé</p>
+            <p class="font-body text-xs text-cream/60 font-light">Lun – Sam : 18h – 22h</p>
+            <p class="font-body text-xs text-cream/60 font-light">Dimanche : Fermé</p>
           </div>
         </div>
       </div>

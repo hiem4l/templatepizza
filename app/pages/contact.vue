@@ -36,7 +36,18 @@
 
             <!-- Hours -->
             <div class="border border-dark/10 p-8">
-              <h3 class="font-body text-xs tracking-[0.3em] uppercase text-pizza font-light mb-6">Horaires d'ouverture</h3>
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="font-body text-xs tracking-[0.3em] uppercase text-pizza font-light">Horaires d'ouverture</h3>
+                <span
+                  :class="[
+                    'inline-flex items-center gap-1.5 text-xs font-body font-light px-3 py-1',
+                    isOpen ? 'bg-green-100 text-green-700' : 'bg-red-50 text-red-600'
+                  ]"
+                >
+                  <span :class="['w-1.5 h-1.5 rounded-full', isOpen ? 'bg-green-500' : 'bg-red-400']" />
+                  {{ statusText }}
+                </span>
+              </div>
               <div class="space-y-3">
                 <div v-for="h in hours" :key="h.day" class="flex justify-between">
                   <span class="font-body text-sm text-dark/60 font-light">{{ h.day }}</span>
@@ -126,10 +137,10 @@
       />
       <div class="relative z-10 h-full flex items-center justify-center">
         <div class="text-center">
-          <p class="font-display text-3xl text-pizza font-bold mb-2">Saint-Roman-de-Bellet</p>
+          <p class="font-display text-3xl text-pizza font-bold mb-2">708 Rte de Bellet</p>
           <p class="font-body text-xs tracking-[0.3em] text-cream/60 uppercase">06200 Nice, France</p>
           <a
-            href="https://maps.google.com/?q=Saint-Roman-de-Bellet+Nice"
+            href="https://maps.google.com/?q=708+Rte+de+Bellet+06200+Nice"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex mt-4 items-center gap-2 text-xs tracking-[0.2em] uppercase font-body text-pizza hover:text-pizza-light transition-colors"
@@ -144,19 +155,22 @@
 
 <script setup lang="ts">
 import { useScrollReveal } from '~/composables/useScrollReveal'
+import { useOpenStatus } from '~/composables/useOpenStatus'
 
 useSeoMeta({
   title: 'Contact — Pizzeria Sian D\'Acqui',
-  description: 'Contactez la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Appelez le 06 66 86 83 70 pour commander.',
+  description: 'Contactez la Pizzeria Sian D\'Acqui au 708 Rte de Bellet, Nice. Appelez le 06 66 86 83 70 pour commander.',
   ogTitle: 'Contact — Pizzeria Sian D\'Acqui',
-  ogDescription: 'Pizzeria artisanale à Saint-Roman-de-Bellet, Nice. Appelez le 06 66 86 83 70 — ouvert du mardi au dimanche.',
+  ogDescription: 'Pizzeria artisanale au 708 Rte de Bellet, Nice. Appelez le 06 66 86 83 70 — ouvert du lundi au samedi.',
   ogUrl: 'https://siandacqui.fr/contact',
   ogType: 'website',
   ogImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
   twitterTitle: 'Contact — Pizzeria Sian D\'Acqui',
-  twitterDescription: 'Pizzeria artisanale à Saint-Roman-de-Bellet. 06 66 86 83 70.',
+  twitterDescription: 'Pizzeria artisanale, 708 Rte de Bellet, Nice. 06 66 86 83 70.',
   twitterImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
 })
+
+const { isOpen, statusText } = useOpenStatus()
 
 const { initReveal } = useScrollReveal()
 onMounted(() => {
@@ -168,7 +182,7 @@ const contactInfos = [
   {
     icon: '📍',
     label: 'Adresse',
-    value: 'Saint-Roman-de-Bellet<br/>06200 Nice, France',
+    value: '708 Rte de Bellet<br/>06200 Nice, France',
   },
   {
     icon: '📞',
@@ -183,13 +197,13 @@ const contactInfos = [
 ]
 
 const hours = [
-  { day: 'Lundi', time: 'Fermé', closed: true },
-  { day: 'Mardi', time: '11h30 – 14h  &  18h – 22h', closed: false },
-  { day: 'Mercredi', time: '11h30 – 14h  &  18h – 22h', closed: false },
-  { day: 'Jeudi', time: '11h30 – 14h  &  18h – 22h', closed: false },
-  { day: 'Vendredi', time: '11h30 – 14h  &  18h – 22h30', closed: false },
-  { day: 'Samedi', time: '12h – 14h30  &  18h – 22h30', closed: false },
-  { day: 'Dimanche', time: '12h – 14h30  &  18h – 22h', closed: false },
+  { day: 'Lundi', time: '18h00 – 21h30', closed: false },
+  { day: 'Mardi', time: '18h00 – 21h30', closed: false },
+  { day: 'Mercredi', time: '18h00 – 21h30', closed: false },
+  { day: 'Jeudi', time: '18h00 – 22h00', closed: false },
+  { day: 'Vendredi', time: '18h00 – 22h00', closed: false },
+  { day: 'Samedi', time: '18h00 – 22h00', closed: false },
+  { day: 'Dimanche', time: 'Fermé', closed: true },
 ]
 
 const form = reactive({

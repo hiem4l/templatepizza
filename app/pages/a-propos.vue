@@ -89,7 +89,7 @@
     <section class="py-20 bg-dark">
       <div class="max-w-3xl mx-auto px-6 text-center reveal">
         <h2 class="font-display text-3xl text-cream font-bold mb-6">Venez nous rendre visite !</h2>
-        <p class="font-body font-light text-cream/60 mb-8">Saint-Roman-de-Bellet, Nice. Ouvert du mardi au dimanche.</p>
+        <p class="font-body font-light text-cream/60 mb-8">708 Rte de Bellet, 06200 Nice. Ouvert du lundi au samedi.</p>
         <div class="flex flex-wrap gap-4 justify-center">
           <NuxtLink to="/carte" class="btn-secondary">Voir la carte</NuxtLink>
           <NuxtLink to="/contact" class="inline-flex items-center gap-3 text-cream/70 text-sm tracking-[0.2em] uppercase font-body font-light hover:text-pizza transition-colors">
