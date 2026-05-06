@@ -23,38 +23,60 @@
 
       <!-- Hero content -->
       <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-24 w-full">
-        <div class="max-w-3xl">
-          <p class="section-subtitle mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-            ✦ &nbsp; Saint-Roman-de-Bellet · Nice
-          </p>
-          <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] tracking-wide opacity-0 animate-fade-in-up" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
-            Sian<br/>
-            <em class="italic text-pizza">D'Acqui</em>
-          </h1>
-          <p class="mt-8 font-body font-light text-lg text-cream/70 max-w-lg leading-relaxed opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
-            Pizzeria artisanale au feu de bois. Des pizzas généreuses préparées avec des ingrédients frais, dans la pure tradition italienne.
-          </p>
-          <div class="flex flex-wrap gap-4 mt-10 opacity-0 animate-fade-in-up" style="animation-delay: 1s; animation-fill-mode: forwards;">
-            <NuxtLink to="/carte" class="btn-secondary">
-              Voir la carte
-            </NuxtLink>
-            <a href="tel:+33666868370" class="inline-flex items-center gap-3 text-cream/80 text-sm tracking-[0.2em] uppercase font-body font-light hover:text-pizza transition-colors duration-400">
-              Commander → 06 66 86 83 70
+        <div class="grid lg:grid-cols-2 gap-12 items-end">
+
+          <!-- Left: titre -->
+          <div>
+            <p class="section-subtitle mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+              ✦ &nbsp; Saint-Roman-de-Bellet · Nice
+            </p>
+            <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] tracking-wide opacity-0 animate-fade-in-up" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
+              Sian<br/>
+              <em class="italic text-pizza">D'Acqui</em>
+            </h1>
+            <p class="mt-8 font-body font-light text-lg text-cream/70 max-w-lg leading-relaxed opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+              Pizzeria artisanale au feu de bois. Des pizzas généreuses préparées avec des ingrédients frais, dans la pure tradition italienne.
+            </p>
+            <div class="mt-10 opacity-0 animate-fade-in-up" style="animation-delay: 1s; animation-fill-mode: forwards;">
+              <NuxtLink to="/carte" class="btn-secondary">
+                Voir la carte
+              </NuxtLink>
+            </div>
+          </div>
+
+          <!-- Right: téléphone -->
+          <div class="hidden lg:flex flex-col items-end justify-end opacity-0 animate-fade-in" style="animation-delay: 1.1s; animation-fill-mode: forwards;">
+            <!-- Badge ouvert/fermé -->
+            <span
+              :class="[
+                'inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase font-body font-light px-4 py-2 mb-8',
+                isOpen ? 'border border-green-500/40 text-green-400' : 'border border-white/20 text-cream/40'
+              ]"
+            >
+              <span :class="['w-1.5 h-1.5 rounded-full', isOpen ? 'bg-green-500 animate-pulse' : 'bg-cream/30']" />
+              {{ statusText }}
+            </span>
+
+            <!-- Séparateur -->
+            <p class="font-body text-[10px] tracking-[0.4em] uppercase text-pizza font-light mb-4">Commander</p>
+            <div class="w-12 h-px bg-pizza/50 mb-6 ml-auto" />
+
+            <!-- Numéro -->
+            <a
+              href="tel:+33666868370"
+              class="font-display font-bold text-cream leading-none tracking-tight hover:text-pizza transition-colors duration-300 text-right group"
+              style="font-size: clamp(2.5rem, 5vw, 4.5rem);"
+            >
+              06 66 86<br/>83 70
+              <span class="block mt-3 font-body text-[10px] tracking-[0.3em] uppercase text-pizza/70 font-light group-hover:text-pizza transition-colors duration-300">
+                Appeler maintenant →
+              </span>
             </a>
           </div>
+
         </div>
       </div>
 
-      <!-- Badges -->
-      <div class="absolute bottom-0 right-0 hidden lg:flex items-center gap-8 pr-12 pb-8 opacity-0 animate-fade-in" style="animation-delay: 1.3s; animation-fill-mode: forwards;">
-        <div class="flex flex-col items-center gap-1">
-          <span class="font-body text-[9px] tracking-[0.3em] text-cream/40 uppercase">Feu de bois</span>
-        </div>
-        <div class="w-px h-8 bg-white/20" />
-        <div class="flex flex-col items-center gap-1">
-          <span class="font-body text-[9px] tracking-[0.3em] text-cream/40 uppercase">Ingrédients frais</span>
-        </div>
-      </div>
     </section>
 
     <!-- Intro strip -->
@@ -263,6 +285,7 @@
 
 <script setup lang="ts">
 import { useScrollReveal } from '~/composables/useScrollReveal'
+import { useOpenStatus } from '~/composables/useOpenStatus'
 
 useSeoMeta({
   title: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
@@ -312,6 +335,7 @@ useHead({
   ],
 })
 
+const { isOpen, statusText } = useOpenStatus()
 const { initReveal } = useScrollReveal()
 
 onMounted(() => {
