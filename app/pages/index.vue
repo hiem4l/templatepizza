@@ -45,7 +45,7 @@
           </div>
 
           <!-- Right: téléphone -->
-          <div class="hidden lg:flex flex-col items-end justify-end opacity-0 animate-fade-in" style="animation-delay: 1.1s; animation-fill-mode: forwards;">
+          <div class="flex flex-col items-start lg:items-end justify-end opacity-0 animate-fade-in mt-8 lg:mt-0" style="animation-delay: 1.1s; animation-fill-mode: forwards;">
             <!-- Badge ouvert/fermé -->
             <span
               :class="[
@@ -59,15 +59,15 @@
 
             <!-- Séparateur -->
             <p class="font-body text-[10px] tracking-[0.4em] uppercase text-pizza font-light mb-4">Commander</p>
-            <div class="w-12 h-px bg-pizza/50 mb-6 ml-auto" />
+            <div class="w-12 h-px bg-pizza/50 mb-6 lg:ml-auto" />
 
             <!-- Numéro -->
             <a
               href="tel:+33666868370"
-              class="font-display font-bold text-cream leading-none tracking-tight hover:text-pizza transition-colors duration-300 text-right group"
-              style="font-size: clamp(2.5rem, 5vw, 4.5rem);"
+              class="font-body font-bold text-cream hover:text-pizza transition-colors duration-300 text-left lg:text-right group whitespace-nowrap"
+              style="font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.02em;"
             >
-              06 66 86<br/>83 70
+              06 66 86 83 70
               <span class="block mt-3 font-body text-[10px] tracking-[0.3em] uppercase text-pizza/70 font-light group-hover:text-pizza transition-colors duration-300">
                 Appeler maintenant →
               </span>
