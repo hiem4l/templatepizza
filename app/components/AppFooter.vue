@@ -5,12 +5,15 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
         <!-- Brand -->
         <div class="lg:col-span-2">
-          <NuxtLink to="/" class="flex flex-col items-start mb-6">
-            <span class="font-display text-3xl text-cream tracking-widest">Sian D'Acqui</span>
-            <span class="font-body text-[10px] tracking-[0.35em] text-pizza uppercase font-light">Pizzeria Artisanale</span>
+          <NuxtLink to="/" class="flex items-center gap-4 mb-6">
+            <img src="/images/icon_round_eagle_256.png" alt="Sian D'Acqui logo" class="w-14 h-14 rounded-full object-cover flex-shrink-0" />
+            <div class="flex flex-col">
+              <span class="font-display text-3xl text-cream tracking-widest">Sian D'Acqui</span>
+              <span class="font-body text-[10px] tracking-[0.35em] text-pizza uppercase font-light">Pizzeria Artisanale</span>
+            </div>
           </NuxtLink>
           <p class="font-body font-light text-sm leading-relaxed text-cream/60 max-w-sm mb-8">
-            Pizzeria artisanale à Saint-Roman-de-Bellet. Pizzas au feu de bois préparées avec des ingrédients frais et locaux, dans la tradition italienne authentique.
+            Pizzeria artisanale à Saint-Roman-de-Bellet. Pizzas au four électrique préparées avec des ingrédients frais et locaux, dans la tradition italienne authentique.
           </p>
           <div class="flex gap-4">
             <a
@@ -42,11 +45,11 @@
           <h4 class="font-body text-xs tracking-[0.3em] uppercase text-pizza font-light mb-6">Contact</h4>
           <ul class="space-y-4 text-sm font-light font-body">
             <li class="flex items-start gap-3 text-cream/60">
-              <span class="text-pizza mt-0.5">✦</span>
+              <span class="text-pizza mt-0.5">—</span>
               <span>708 Rte de Bellet<br/>06200 Nice, France</span>
             </li>
             <li class="flex items-center gap-3 text-cream/60">
-              <span class="text-pizza">✦</span>
+              <span class="text-pizza">—</span>
               <a href="tel:+33666868370" class="hover:text-pizza transition-colors duration-300">06 66 86 83 70</a>
             </li>
           </ul>

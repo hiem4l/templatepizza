@@ -1,8 +1,4 @@
 <template>
-  <!-- Custom cursor -->
-  <div ref="cursorEl" class="custom-cursor hidden lg:block fixed top-0 left-0 w-10 h-10 rounded-full border border-pizza pointer-events-none z-[9999] transition-[width,height,border-color,background-color] duration-300 mix-blend-difference" />
-  <div ref="cursorDotEl" class="custom-cursor-dot hidden lg:block fixed top-0 left-0 w-2 h-2 rounded-full bg-pizza pointer-events-none z-[9999]" />
-
   <!-- Navigation pill -->
   <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none pt-4 px-4">
     <nav
@@ -15,9 +11,7 @@
     >
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-2.5 group flex-shrink-0">
-        <div class="w-7 h-7 rounded-full bg-pizza flex items-center justify-center flex-shrink-0">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 text-cream" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
-        </div>
+        <img src="/images/icon_round_eagle_256.png" alt="Sian D'Acqui" class="w-9 h-9 rounded-full flex-shrink-0 object-cover" />
         <span class="font-display text-base text-cream font-bold tracking-wide transition-colors duration-300 group-hover:text-pizza">Sian D'Acqui</span>
       </NuxtLink>
 
@@ -102,8 +96,6 @@
 </template>
 
 <script setup lang="ts">
-import { useCursor } from '~/composables/useCursor'
-
 const scrolled = ref(false)
 
 onMounted(() => {
@@ -123,16 +115,6 @@ const navLinks = [
   { label: 'Galerie', path: '/galerie' },
   { label: 'Contact', path: '/contact' },
 ]
-
-const cursorEl = ref<HTMLElement | null>(null)
-const cursorDotEl = ref<HTMLElement | null>(null)
-const { initCursor } = useCursor()
-
-onMounted(() => {
-  if (cursorEl.value && cursorDotEl.value) {
-    initCursor(cursorEl.value, cursorDotEl.value)
-  }
-})
 
 // Close mobile menu on route change
 const route = useRoute()

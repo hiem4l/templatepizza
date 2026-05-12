@@ -27,6 +27,14 @@ export interface Boisson {
   category: 'SODAS' | 'BIERES' | 'VINS'
 }
 
+export interface Burger {
+  id: number
+  name: string
+  description: string
+  price: number
+  allergens: string[]
+}
+
 export const pizzas: Pizza[] = [
   // ── Traditionnelles ──────────────────────────────────────────────────
   {
@@ -238,6 +246,19 @@ export const pizzas: Pizza[] = [
     allergens: ['Gluten', 'Lait'],
     image: 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=800&q=80',
   },
+  {
+    id: 17,
+    name: 'La Raclette',
+    description: 'Crème fraîche, pomme de terre, mozzarella Lanza, cébette, jambon blanc',
+    price: 15.00,
+    category: 'Signature',
+    vegetarian: false,
+    hasFish: false,
+    hasMeat: true,
+    hasEgg: false,
+    allergens: ['Gluten', 'Lait'],
+    image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&q=80',
+  },
 ]
 
 export const desserts: Dessert[] = [
@@ -246,6 +267,12 @@ export const desserts: Dessert[] = [
     name: 'La Nutella',
     description: 'Pizza sucrée garnie de Nutella, servie chaude. Un dessert gourmand incontournable.',
     price: 7.00,
+  },
+  {
+    id: 2,
+    name: 'Tiramisu maison',
+    description: 'Tiramisu fait maison, crème mascarpone, biscuits au café, cacao. La recette de la maison.',
+    price: 4.00,
   },
 ]
 
@@ -260,4 +287,14 @@ export const boissons: Boisson[] = [
   // Vins
   { id: 6, name: 'Marrenon, Les Grains, Pinot noir', description: 'IGP Méditerranée — Rouge', price: 17.00, category: 'VINS' },
   { id: 7, name: 'Sun Up, Les Grains, Pinot noir', description: 'IGP Méditerranée — Rosé', price: 17.00, category: 'VINS' },
+]
+
+export const burgers: Burger[] = [
+  {
+    id: 1,
+    name: 'Burger du moment',
+    description: 'Notre burger fait maison qui change régulièrement selon les saisons et les arrivées du marché. Demandez-nous la composition du jour.',
+    price: 13.00,
+    allergens: ['Gluten', 'Lait', 'Œufs'],
+  },
 ]

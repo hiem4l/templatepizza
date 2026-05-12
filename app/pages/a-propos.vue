@@ -24,7 +24,7 @@
               Nichée dans le charmant hameau de Saint-Roman-de-Bellet, à flanc de colline dominant Nice et la mer Méditerranée, la Pizzeria Sian D'Acqui est née d'une passion profonde pour l'artisanat et la cuisine italienne authentique.
             </p>
             <p class="font-body font-light text-dark/70 leading-relaxed mb-6">
-              Notre four à bois, cœur battant de la pizzeria, atteint des températures proches de 400°C pour cuire nos pizzas en moins de 90 secondes. C'est cette cuisson rapide et intense qui donne à nos pizzas leur croûte incomparable — légèrement croustillante à l'extérieur, moelleuse et aérée à l'intérieur.
+              Notre four électrique, cœur battant de la pizzeria, atteint des températures proches de 400°C pour cuire nos pizzas en moins de 90 secondes. C'est cette cuisson rapide et intense qui donne à nos pizzas leur croûte incomparable — légèrement croustillante à l'extérieur, moelleuse et aérée à l'intérieur.
             </p>
             <p class="font-body font-light text-dark/70 leading-relaxed">
               Chaque pizza commence par notre pâte maison, fermentée pendant 48 heures pour développer tous ses arômes. Nous sélectionnons ensuite les meilleurs ingrédients : tomates San Marzano, mozzarella fior di latte, charcuteries artisanales et légumes frais de saison.
@@ -40,8 +40,8 @@
                 <p class="font-body text-xs tracking-[0.25em] uppercase text-cream/70 font-light">Artisanal</p>
               </div>
               <div class="bg-cream-dark p-6 border border-dark/10">
-                <p class="font-display text-5xl text-pizza font-bold">🔥</p>
-                <p class="font-body text-xs tracking-[0.25em] uppercase text-dark/50 font-light">Four à bois</p>
+                <p class="font-display text-3xl text-pizza font-bold">400°C</p>
+                <p class="font-body text-xs tracking-[0.25em] uppercase text-dark/50 font-light">Four électrique</p>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div v-for="(val, i) in values" :key="val.title" class="reveal border-t-2 border-pizza pt-8" :data-delay="i * 100">
-            <div class="text-3xl mb-4">{{ val.icon }}</div>
+            <div class="w-8 h-px bg-pizza mb-4" />
             <h3 class="font-display text-xl text-dark font-bold mb-3">{{ val.title }}</h3>
             <p class="font-body text-sm text-dark/60 font-light leading-relaxed">{{ val.desc }}</p>
           </div>
@@ -74,11 +74,10 @@
         <div class="red-line mx-auto mb-8" />
         <h2 class="font-display text-3xl text-dark font-bold mb-6">Allergènes</h2>
         <p class="font-body font-light text-dark/60 leading-relaxed mb-8">
-          Nous prenons très au sérieux les allergies alimentaires. Les ingrédients allergènes sont clairement indiqués sur chaque pizza de notre carte (marqués ⚠). Si vous avez une allergie ou une intolérance, n'hésitez pas à nous en informer lors de votre commande.
+          Nous prenons très au sérieux les allergies alimentaires. Les ingrédients allergènes sont clairement indiqués sur chaque pizza de notre carte . Si vous avez une allergie ou une intolérance, n'hésitez pas à nous en informer lors de votre commande.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div v-for="allergen in allergens" :key="allergen.name" class="bg-cream-dark p-4 border border-amber-200 text-center">
-            <span class="text-2xl mb-2 block">{{ allergen.icon }}</span>
             <span class="font-body text-xs tracking-[0.15em] uppercase text-dark/60 font-light">{{ allergen.name }}</span>
           </div>
         </div>
@@ -106,14 +105,14 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 
 useSeoMeta({
   title: 'À propos — Pizzeria Sian D\'Acqui',
-  description: 'Découvrez l\'histoire de la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Four à bois, pâte artisanale et ingrédients frais.',
+  description: 'Découvrez l\'histoire de la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Four électrique, pâte artisanale et ingrédients frais.',
   ogTitle: 'À propos — Pizzeria Sian D\'Acqui',
-  ogDescription: 'Découvrez l\'histoire de la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Four à bois, pâte artisanale et ingrédients frais.',
+  ogDescription: 'Découvrez l\'histoire de la Pizzeria Sian D\'Acqui à Saint-Roman-de-Bellet. Four électrique, pâte artisanale et ingrédients frais.',
   ogUrl: 'https://siandacqui.fr/a-propos',
   ogType: 'website',
   ogImage: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1200&q=80',
   twitterTitle: 'À propos — Pizzeria Sian D\'Acqui',
-  twitterDescription: 'L\'histoire de la Pizzeria Sian D\'Acqui — four à bois, pâte artisanale.',
+  twitterDescription: 'L\'histoire de la Pizzeria Sian D\'Acqui — four électrique, pâte artisanale.',
   twitterImage: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1200&q=80',
 })
 
@@ -125,27 +124,24 @@ onMounted(() => {
 
 const values = [
   {
-    icon: '🔥',
     title: 'Tradition',
-    desc: 'Notre four à bois est au cœur de notre savoir-faire. Nous respectons les méthodes de la pizzeria napolitaine authentique, avec une pâte longue fermentation et une cuisson vive.',
+    desc: 'Notre four électrique est au cœur de notre savoir-faire. Nous respectons les méthodes de la pizzeria napolitaine authentique, avec une pâte longue fermentation et une cuisson vive.',
   },
   {
-    icon: '🌿',
     title: 'Fraîcheur',
     desc: 'Nous nous approvisionnons en produits frais et locaux autant que possible. Légumes de saison, fromages artisanaux et charcuteries sélectionnées — la qualité avant tout.',
   },
   {
-    icon: '💛',
     title: 'Générosité',
     desc: 'Ici, les pizzas sont généreuses. Pas de demi-portions ni de garnitures rachitiques — nous aimons que nos clients repartent rassasiés et heureux.',
   },
 ]
 
 const allergens = [
-  { icon: '🌾', name: 'Gluten' },
-  { icon: '🥛', name: 'Lactose' },
-  { icon: '🥚', name: 'Œufs' },
-  { icon: '🐟', name: 'Poisson' },
+  { name: 'Gluten' },
+  { name: 'Lactose' },
+  { name: 'Œufs' },
+  { name: 'Poisson' },
 ]
 </script>
 

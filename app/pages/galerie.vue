@@ -19,7 +19,7 @@
           <p class="section-subtitle mb-4">L'univers Sian D'Acqui</p>
           <div class="red-line mx-auto mb-6" />
           <p class="font-body font-light text-dark/60 max-w-lg mx-auto">
-            Nos pizzas, notre four à bois, nos ingrédients frais et les moments partagés dans notre pizzeria.
+            Nos pizzas, notre four électrique, nos ingrédients frais et les moments partagés dans notre pizzeria.
           </p>
         </div>
 
@@ -44,13 +44,12 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           <div
             v-for="(img, i) in filteredImages"
-            :key="img.src"
+            :key="activeGalleryCat + i"
             :class="[
-              'reveal group relative overflow-hidden cursor-pointer',
+              'group relative overflow-hidden cursor-pointer',
               img.wide ? 'md:col-span-2' : '',
               img.tall ? 'row-span-2' : '',
             ]"
-            :data-delay="i * 50"
             @click="openLightbox(img)"
           >
             <div
@@ -81,7 +80,7 @@
             class="absolute top-6 right-6 w-10 h-10 border border-white/30 flex items-center justify-center text-cream hover:border-pizza hover:text-pizza transition-colors"
             aria-label="Fermer"
           >
-            ✕
+            ×
           </button>
           <div class="max-w-3xl max-h-[80vh] w-full">
             <div
@@ -100,7 +99,7 @@
         <h2 class="font-display text-3xl text-cream font-bold mb-4">Venez vivre l'expérience !</h2>
         <p class="font-body text-cream/80 font-light mb-6">Commandez par téléphone ou venez nous rendre visite à Saint-Roman-de-Bellet.</p>
         <a href="tel:+33666868370" class="inline-flex items-center gap-3 border border-cream text-cream px-8 py-4 text-sm tracking-[0.2em] uppercase font-body font-light hover:bg-cream hover:text-pizza transition-all duration-400">
-          📞 06 66 86 83 70
+          06 66 86 83 70
         </a>
       </div>
     </section>
@@ -112,14 +111,14 @@ import { useScrollReveal } from '~/composables/useScrollReveal'
 
 useSeoMeta({
   title: 'Galerie — Pizzeria Sian D\'Acqui',
-  description: 'Découvrez en images nos pizzas artisanales, notre four à bois et l\'atmosphère unique de la Pizzeria Sian D\'Acqui.',
+  description: 'Découvrez en images nos pizzas artisanales, notre four électrique et l\'atmosphère unique de la Pizzeria Sian D\'Acqui.',
   ogTitle: 'Galerie — Pizzeria Sian D\'Acqui',
-  ogDescription: 'Découvrez en images nos pizzas artisanales, notre four à bois et l\'atmosphère unique de la Pizzeria Sian D\'Acqui.',
+  ogDescription: 'Découvrez en images nos pizzas artisanales, notre four électrique et l\'atmosphère unique de la Pizzeria Sian D\'Acqui.',
   ogUrl: 'https://siandacqui.fr/galerie',
   ogType: 'website',
   ogImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80',
   twitterTitle: 'Galerie — Pizzeria Sian D\'Acqui',
-  twitterDescription: 'Nos pizzas artisanales et notre four à bois en images.',
+  twitterDescription: 'Nos pizzas artisanales et notre four électrique en images.',
   twitterImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80',
 })
 
@@ -135,14 +134,15 @@ const lightboxImg = ref<{ src: string; caption: string } | null>(null)
 const galleryCategories = [
   { id: 'all', label: 'Tout' },
   { id: 'pizzas', label: 'Pizzas' },
+  { id: 'burgers', label: 'Burgers' },
   { id: 'ambiance', label: 'Ambiance' },
   { id: 'ingredients', label: 'Ingrédients' },
 ]
 
 const images = [
-  { src: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80', caption: 'Pizza Margherita au feu de bois', category: 'pizzas', wide: false, tall: false },
+  { src: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80', caption: 'Pizza Margherita', category: 'pizzas', wide: false, tall: false },
   { src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80', caption: 'La Reine — jambon, champignons', category: 'pizzas', wide: true, tall: false },
-  { src: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80', caption: 'Notre four à bois traditionnel', category: 'ambiance', wide: false, tall: false },
+  { src: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80', caption: 'Notre four électrique', category: 'ambiance', wide: false, tall: false },
   { src: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&q=80', caption: 'Ambiance pizzeria', category: 'ambiance', wide: false, tall: false },
   { src: 'https://images.unsplash.com/photo-1549299604-2b5c9d1bf9f8?w=800&q=80', caption: 'Mozzarella fior di latte', category: 'ingredients', wide: false, tall: false },
   { src: 'https://images.unsplash.com/photo-1589840700256-5aa45c2c7e17?w=800&q=80', caption: 'Tomates San Marzano', category: 'ingredients', wide: false, tall: false },
@@ -152,6 +152,10 @@ const images = [
   { src: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80', caption: 'Pizza Cannibale', category: 'pizzas', wide: false, tall: false },
   { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', caption: 'Basilic frais du jardin', category: 'ingredients', wide: false, tall: false },
   { src: 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=800&q=80', caption: 'Pizza Nutella — dessert', category: 'pizzas', wide: false, tall: false },
+  { src: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80', caption: 'Pâte artisanale', category: 'pizzas', wide: false, tall: false },
+  { src: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=800&q=80', caption: 'Pizza saumon fumé', category: 'pizzas', wide: false, tall: false },
+  { src: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&q=80', caption: 'Burger du moment', category: 'burgers', wide: true, tall: false },
+  { src: 'https://images.unsplash.com/photo-1550317138-10000687a72b?w=800&q=80', caption: 'Burger maison', category: 'burgers', wide: false, tall: false },
 ]
 
 const filteredImages = computed(() => {

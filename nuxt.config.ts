@@ -31,7 +31,10 @@ export default defineNuxtConfig({
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/images/icon_round_eagle_512.png' },
+        { rel: 'icon', type: 'image/png', sizes: '256x256', href: '/images/icon_round_eagle_256.png' },
+        { rel: 'icon', type: 'image/png', sizes: '128x128', href: '/images/icon_round_eagle_128.png' },
+        { rel: 'apple-touch-icon', href: '/images/icon_round_eagle_256.png' },
         { rel: 'canonical', href: 'https://siandacqui.fr' },
       ],
     },

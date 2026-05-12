@@ -21,6 +21,11 @@
         <div class="w-px h-12 bg-gradient-to-b from-pizza/50 to-transparent animate-pulse" />
       </div>
 
+      <!-- Eagle watermark -->
+      <div class="absolute bottom-0 right-0 w-80 h-80 lg:w-[480px] lg:h-[480px] opacity-10 pointer-events-none z-0">
+        <img src="/images/eagle_pizza_exact_transparent.webp" alt="" class="w-full h-full object-contain" />
+      </div>
+
       <!-- Hero content -->
       <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-24 w-full">
         <div class="grid lg:grid-cols-2 gap-12 items-end">
@@ -28,14 +33,14 @@
           <!-- Left: titre -->
           <div>
             <p class="section-subtitle mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-              ✦ &nbsp; Saint-Roman-de-Bellet · Nice
+              Saint-Roman-de-Bellet · Nice
             </p>
             <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] tracking-wide opacity-0 animate-fade-in-up" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
               Sian<br/>
               <em class="italic text-pizza">D'Acqui</em>
             </h1>
             <p class="mt-8 font-body font-light text-lg text-cream/70 max-w-lg leading-relaxed opacity-0 animate-fade-in-up" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
-              Pizzeria artisanale au feu de bois. Des pizzas généreuses préparées avec des ingrédients frais, dans la pure tradition italienne.
+              Pizzeria artisanale au four électrique. Des pizzas généreuses préparées avec des ingrédients frais, dans la pure tradition italienne.
             </p>
             <div class="mt-10 opacity-0 animate-fade-in-up" style="animation-delay: 1s; animation-fill-mode: forwards;">
               <NuxtLink to="/carte" class="btn-secondary">
@@ -89,6 +94,11 @@
       </div>
     </section>
 
+    <!-- Separator dots -->
+    <div class="flex justify-center py-6 bg-white">
+      <img src="/images/separator_dots_red.png" alt="" class="h-4 w-auto opacity-80" />
+    </div>
+
     <!-- Story section -->
     <section class="py-28 lg:py-40">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -110,10 +120,10 @@
             <div class="red-line mb-8" />
             <h2 class="section-title mb-8">
               L'art de la pizza<br/>
-              <em class="italic text-warm">au feu de bois</em>
+              <em class="italic text-warm">au four électrique</em>
             </h2>
             <p class="font-body font-light text-dark/70 leading-relaxed mb-6">
-              Nichée dans le hameau de Saint-Roman-de-Bellet, la Pizzeria Sian D'Acqui est une adresse incontournable pour les amateurs de vraies pizzas artisanales. Chaque pâte est travaillée à la main, garnie d'ingrédients soigneusement sélectionnés et cuite dans notre four à bois traditionnel.
+              Nichée dans le hameau de Saint-Roman-de-Bellet, la Pizzeria Sian D'Acqui est une adresse incontournable pour les amateurs de vraies pizzas artisanales. Chaque pâte est travaillée à la main, garnie d'ingrédients soigneusement sélectionnés et cuite dans notre four électrique.
             </p>
             <p class="font-body font-light text-dark/70 leading-relaxed mb-10">
               Ici, la pizza est une passion. Notre carte propose des classiques intemporels et des créations originales, pour satisfaire toutes les envies — des végétariens aux carnivores les plus convaincus.
@@ -134,7 +144,7 @@
           <div class="red-line mx-auto mb-8" />
           <h2 class="section-title">La Carte</h2>
           <p class="mt-6 font-body font-light text-dark/60 max-w-lg mx-auto leading-relaxed">
-            Des pizzas généreuses, cuites au feu de bois avec des ingrédients de qualité. Végétariennes, viande, poisson — il y en a pour tous les goûts.
+            Des pizzas généreuses, cuites au four électrique avec des ingrédients de qualité. Végétariennes, viande, poisson — il y en a pour tous les goûts.
           </p>
         </div>
 
@@ -196,7 +206,7 @@
             class="reveal border border-white/10 p-8 hover:border-pizza/50 transition-all duration-500 group"
             :data-delay="i * 120"
           >
-            <div class="text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 inline-block">{{ feat.icon }}</div>
+            <div class="w-8 h-px bg-pizza mb-6" />
             <h3 class="font-display text-xl text-cream font-bold mb-3">{{ feat.title }}</h3>
             <p class="font-body text-sm text-cream/50 font-light leading-relaxed">{{ feat.desc }}</p>
           </div>
@@ -221,7 +231,7 @@
             :data-delay="i * 150"
           >
             <div class="flex gap-1 mb-6">
-              <span v-for="s in 5" :key="s" class="text-pizza text-sm">★</span>
+              <span v-for="s in 5" :key="s" class="text-pizza text-sm font-bold">*</span>
             </div>
             <p class="font-display text-xl text-dark/80 italic font-normal leading-relaxed mb-8">« {{ t.text }} »</p>
             <div class="flex items-center gap-4">
@@ -255,31 +265,6 @@
       </div>
     </section>
 
-    <!-- CTA section -->
-    <section class="py-28 bg-dark relative overflow-hidden">
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0" style="background-image: repeating-linear-gradient(45deg, #c0392b 0px, #c0392b 1px, transparent 0px, transparent 50%); background-size: 30px 30px;" />
-      </div>
-      <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
-        <p class="section-subtitle mb-4">Commander maintenant</p>
-        <div class="red-line mx-auto mb-8" />
-        <h2 class="section-title text-cream mb-8">
-          Une envie de pizza ?<br/>
-          <em class="italic text-pizza">On est là !</em>
-        </h2>
-        <p class="font-body font-light text-cream/60 leading-relaxed mb-12 text-lg">
-          Commandez par téléphone ou venez nous retrouver à Saint-Roman-de-Bellet. Pizzas à emporter ou sur place.
-        </p>
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a href="tel:+33666868370" class="btn-secondary">
-            📞 06 66 86 83 70
-          </a>
-          <NuxtLink to="/contact" class="inline-flex items-center gap-3 text-cream/70 text-sm tracking-[0.2em] uppercase font-body font-light hover:text-pizza transition-colors duration-400">
-            Nous trouver →
-          </NuxtLink>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -289,14 +274,14 @@ import { useOpenStatus } from '~/composables/useOpenStatus'
 
 useSeoMeta({
   title: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
-  description: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux, commande au 06 66 86 83 70.',
+  description: 'Pizzeria artisanale au four électrique à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux, commande au 06 66 86 83 70.',
   ogTitle: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
-  ogDescription: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux, commande au 06 66 86 83 70.',
+  ogDescription: 'Pizzeria artisanale au four électrique à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux, commande au 06 66 86 83 70.',
   ogUrl: 'https://siandacqui.fr/',
   ogType: 'website',
   ogImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
   twitterTitle: 'Pizzeria Sian D\'Acqui — Saint-Roman-de-Bellet',
-  twitterDescription: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice.',
+  twitterDescription: 'Pizzeria artisanale au four électrique à Saint-Roman-de-Bellet, Nice.',
   twitterImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
 })
 
@@ -311,7 +296,7 @@ useHead({
         url: 'https://siandacqui.fr',
         telephone: '+33666868370',
         image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
-        description: 'Pizzeria artisanale au feu de bois à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux.',
+        description: 'Pizzeria artisanale au four électrique à Saint-Roman-de-Bellet, Nice. Pizzas fraîches, ingrédients locaux.',
         servesCuisine: 'Pizza',
         priceRange: '€€',
         address: {
@@ -344,7 +329,7 @@ onMounted(() => {
 })
 
 const strips = [
-  'Four à bois',
+  'Four électrique',
   'Ingrédients frais',
   'Pâte maison',
   'Options végétariennes',
@@ -374,22 +359,18 @@ const pizzaTeaser = [
 
 const features = [
   {
-    icon: '🔥',
-    title: 'Four à bois',
-    desc: 'Notre four à bois traditionnel atteint 400°C pour une cuisson parfaite en moins de 90 secondes — une croûte croustillante, un cœur moelleux.',
+    title: 'Four électrique',
+    desc: 'Notre four électrique traditionnel atteint 400°C pour une cuisson parfaite en moins de 90 secondes — une croûte croustillante, un cœur moelleux.',
   },
   {
-    icon: '🌿',
     title: 'Ingrédients frais',
     desc: 'Tomates fraîches, mozzarella fior di latte, basilic du jardin. Nous sélectionnons chaque ingrédient avec soin auprès de nos producteurs locaux.',
   },
   {
-    icon: '🤌',
     title: 'Pâte artisanale',
     desc: 'Notre pâte est fermentée 48 heures pour développer tous ses arômes. Légère, digestive et croustillante, elle est le secret de nos pizzas.',
   },
   {
-    icon: '🌱',
     title: 'Options pour tous',
     desc: 'Végétariens, carnivores, amateurs de fruits de mer — notre carte propose une grande variété pour satisfaire toutes les envies.',
   },
@@ -397,7 +378,7 @@ const features = [
 
 const testimonials = [
   {
-    text: 'La meilleure pizza de la région ! La pâte est incroyable, légère et croustillante. Le four à bois fait toute la différence.',
+    text: 'La meilleure pizza de la région ! La pâte est incroyable, légère et croustillante. Le four électrique fait toute la différence.',
     author: 'Marie L.',
     origin: 'Nice',
   },

@@ -68,7 +68,7 @@ onMounted(() => {
   onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 })
 
-const strips = ['Four à bois', 'Ingrédients frais', 'Pâte maison', 'À emporter']
+const strips = ['Four électrique', 'Ingrédients frais', 'Pâte maison', 'À emporter']
 
 const carteCats = [
   { id: 'pizzas', label: 'Pizzas' },

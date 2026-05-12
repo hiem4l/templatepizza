@@ -25,7 +25,12 @@
             <ul class="space-y-8 mb-12">
               <li v-for="info in contactInfos" :key="info.label" class="flex gap-5">
                 <div class="w-12 h-12 border border-pizza/30 flex items-center justify-center flex-shrink-0">
-                  <span class="text-pizza text-xl">{{ info.icon }}</span>
+                  <!-- adresse -->
+                  <svg v-if="info.icon === 'adresse'" class="w-5 h-5 text-pizza" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+                  <!-- tel -->
+                  <svg v-else-if="info.icon === 'tel'" class="w-5 h-5 text-pizza" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                  <!-- acces -->
+                  <svg v-else class="w-5 h-5 text-pizza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><circle cx="20" cy="16" r="1"/></svg>
                 </div>
                 <div>
                   <p class="font-body text-xs tracking-[0.25em] uppercase text-pizza font-light mb-1">{{ info.label }}</p>
@@ -69,7 +74,7 @@
                 class="flex items-center gap-4 group"
               >
                 <div class="w-14 h-14 bg-pizza flex items-center justify-center flex-shrink-0 group-hover:bg-pizza-dark transition-colors duration-300">
-                  <span class="text-cream text-2xl">📞</span>
+                  <svg class="w-6 h-6 text-cream" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
                 </div>
                 <div>
                   <p class="font-body text-xs tracking-[0.2em] uppercase text-pizza font-light mb-0.5">Appeler maintenant</p>
@@ -180,17 +185,17 @@ onMounted(() => {
 
 const contactInfos = [
   {
-    icon: '📍',
+    icon: 'adresse',
     label: 'Adresse',
     value: '708 Rte de Bellet<br/>06200 Nice, France',
   },
   {
-    icon: '📞',
+    icon: 'tel',
     label: 'Téléphone',
     value: '<a href="tel:+33666868370" class="hover:text-pizza transition-colors duration-300">06 66 86 83 70</a>',
   },
   {
-    icon: '🚗',
+    icon: 'acces',
     label: 'Accès',
     value: 'Accessible en voiture depuis Nice (20 min). Parking disponible sur place.',
   },

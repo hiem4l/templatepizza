@@ -57,7 +57,6 @@
                   : 'border border-dark/20 text-dark/70 hover:border-pizza hover:text-pizza'
               ]"
             >
-              <span>{{ f.icon }}</span>
               {{ f.label }}
             </button>
           </div>
@@ -71,7 +70,7 @@
               <div
                 v-for="pizza in traditionnellesPizzas"
                 :key="pizza.id"
-                class="group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
+                class="group bg-white"
               >
                 <PizzaCard :pizza="pizza" />
               </div>
@@ -87,7 +86,7 @@
               <div
                 v-for="pizza in signaturesPizzas"
                 :key="pizza.id"
-                class="group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
+                class="group bg-white"
               >
                 <PizzaCard :pizza="pizza" />
               </div>
@@ -104,7 +103,7 @@
               <div
                 v-for="pizza in filteredPizzas"
                 :key="pizza.id"
-                class="group bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
+                class="group bg-white"
               >
                 <PizzaCard :pizza="pizza" />
               </div>
@@ -114,18 +113,45 @@
 
         <!-- DESSERTS -->
         <div v-if="activeCategory === 'desserts'">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               v-for="d in desserts"
               :key="d.id"
-              class="bg-white shadow-sm border-t-2 border-pizza overflow-hidden"
+              class="border-t-2 border-pizza bg-white p-6"
             >
-              <div class="aspect-[4/3] bg-cover bg-center"
-                style="background-image: url('https://assets.afcdn.com/recipe/20160928/46742_w1024h576c1cx2736cy1824.webp')" />
-              <div class="p-6">
-                <h3 class="font-display text-xl text-dark font-bold mb-2">{{ d.name }}</h3>
-                <p class="font-body text-sm text-dark/60 font-light mb-4 leading-relaxed">{{ d.description }}</p>
-                <p class="font-display text-2xl text-pizza font-bold">{{ d.price.toFixed(2) }}€</p>
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <h3 class="font-display text-xl text-dark font-bold leading-tight">{{ d.name }}</h3>
+                <span class="font-display text-xl text-pizza font-bold flex-shrink-0">{{ d.price.toFixed(2) }}€</span>
+              </div>
+              <p class="font-body text-sm text-dark/60 font-light leading-relaxed">{{ d.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BURGERS -->
+        <div v-if="activeCategory === 'burgers'">
+          <div class="mb-8">
+            <p class="font-body text-sm text-dark/60 font-light italic">Notre burger change régulièrement selon les arrivées du marché et les saisons. N’hésitez pas à nous appeler pour connaître la composition du jour.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              v-for="b in burgers"
+              :key="b.id"
+              class="border-t-2 border-pizza bg-white p-6"
+            >
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <h3 class="font-display text-xl text-dark font-bold leading-tight">{{ b.name }}</h3>
+                <span class="font-display text-xl text-pizza font-bold flex-shrink-0">{{ b.price.toFixed(2) }}€</span>
+              </div>
+              <p class="font-body text-sm text-dark/60 font-light leading-relaxed mb-4">{{ b.description }}</p>
+              <div class="flex flex-wrap gap-1" v-if="b.allergens.length">
+                <span
+                  v-for="allergen in b.allergens"
+                  :key="allergen"
+                  class="text-[9px] tracking-[0.15em] uppercase font-body px-2 py-0.5 bg-amber-50 text-amber-700 border border-amber-200 font-light"
+                >
+                  {{ allergen }}
+                </span>
               </div>
             </div>
           </div>
@@ -160,7 +186,7 @@
     <section class="py-8 bg-amber-50 border-t border-amber-200">
       <div class="max-w-7xl mx-auto px-6 lg:px-12">
         <p class="font-body text-xs text-amber-800 font-light text-center">
-          ⚠ Les badges allergènes (Gluten, Lait, Poisson, Œufs…) sont indiqués sur chaque pizza. En cas d'allergie, signalez-le lors de votre commande au <a href="tel:+33666868370" class="underline hover:text-amber-900">06 66 86 83 70</a>.
+          Les badges allergènes (Gluten, Lait, Poisson, Œufs…) sont indiqués sur chaque pizza. En cas d'allergie, signalez-le lors de votre commande au <a href="tel:+33666868370" class="underline hover:text-amber-900">06 66 86 83 70</a>.
         </p>
       </div>
     </section>
@@ -171,7 +197,7 @@
         <p class="font-body text-xs tracking-[0.3em] uppercase text-pizza font-light mb-4">Commander</p>
         <h2 class="font-display text-3xl text-cream font-bold mb-6">Vous avez fait votre choix ?</h2>
         <a href="tel:+33666868370" class="btn-secondary inline-flex">
-          📞 Appelez le 06 66 86 83 70
+          Appelez le 06 66 86 83 70
         </a>
       </div>
     </section>
@@ -179,20 +205,20 @@
 </template>
 
 <script setup lang="ts">
-import { pizzas as allPizzas, desserts, boissons as allBoissons } from '~/data/menu'
+import { pizzas as allPizzas, desserts, boissons as allBoissons, burgers } from '~/data/menu'
 import type { Pizza } from '~/data/menu'
 import { useScrollReveal } from '~/composables/useScrollReveal'
 
 useSeoMeta({
   title: 'La Carte — Pizzeria Sian D\'Acqui',
-  description: 'Découvrez notre carte de 16 pizzas artisanales au feu de bois, desserts et boissons. Végétariennes, viande, poisson.',
+  description: 'Découvrez notre carte de 16 pizzas artisanales au four électrique, desserts et boissons. Végétariennes, viande, poisson.',
   ogTitle: 'La Carte — Pizzeria Sian D\'Acqui',
-  ogDescription: 'Découvrez notre carte de 16 pizzas artisanales au feu de bois, desserts et boissons. Végétariennes, viande, poisson.',
+  ogDescription: 'Découvrez notre carte de 16 pizzas artisanales au four électrique, desserts et boissons. Végétariennes, viande, poisson.',
   ogUrl: 'https://siandacqui.fr/carte',
   ogType: 'website',
   ogImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
   twitterTitle: 'La Carte — Pizzeria Sian D\'Acqui',
-  twitterDescription: '16 pizzas artisanales au feu de bois à Saint-Roman-de-Bellet.',
+  twitterDescription: '16 pizzas artisanales au four électrique à Saint-Roman-de-Bellet.',
   twitterImage: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80',
 })
 
@@ -202,21 +228,22 @@ onMounted(() => {
   onBeforeUnmount(() => c?.())
 })
 
-const activeCategory = useState<'pizzas' | 'desserts' | 'boissons'>('carteCategory', () => 'pizzas')
+const activeCategory = useState<'pizzas' | 'desserts' | 'boissons' | 'burgers'>('carteCategory', () => 'pizzas')
 const activeFilter = ref('all')
 
 const categories = [
-  { id: 'pizzas' as const, label: '🍕 Pizzas' },
-  { id: 'desserts' as const, label: '🍫 Desserts' },
-  { id: 'boissons' as const, label: '🥤 Boissons' },
+  { id: 'pizzas' as const, label: 'Pizzas' },
+  { id: 'burgers' as const, label: 'Burgers' },
+  { id: 'desserts' as const, label: 'Desserts' },
+  { id: 'boissons' as const, label: 'Boissons' },
 ]
 
 const filters = [
-  { id: 'all', icon: '🍕', label: 'Toutes' },
-  { id: 'vegetarian', icon: '🌱', label: 'Végétariennes' },
-  { id: 'meat', icon: '🥩', label: 'Viande' },
-  { id: 'fish', icon: '🐟', label: 'Poisson' },
-  { id: 'egg', icon: '🥚', label: 'Œuf' },
+  { id: 'all', icon: '', label: 'Toutes' },
+  { id: 'vegetarian', icon: '', label: 'Végétariennes' },
+  { id: 'meat', icon: '', label: 'Viande' },
+  { id: 'fish', icon: '', label: 'Poisson' },
+  { id: 'egg', icon: '', label: 'Œuf' },
 ]
 
 const boissonCategories = [
